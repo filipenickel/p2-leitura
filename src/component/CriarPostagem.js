@@ -11,7 +11,6 @@ class CriarPostagem extends Component {
 
   handleCriarPostagem = e => {
     e.preventDefault();
-    
 
     let postagem = {
       id: Date.now(),
@@ -45,18 +44,23 @@ class CriarPostagem extends Component {
               required
               label="Titulo"
               placeholder="Titulo"
-              onChange={(e, obj) => this.setState({title: obj.value})}
+              onChange={(e, obj) => this.setState({ title: obj.value })}
             />
-            <Form.Input fluid label="Autor" placeholder="Autor" name="author"
-            required
-            onChange={(e, obj) => this.setState({author: obj.value})} />
+            <Form.Input
+              fluid
+              label="Autor"
+              placeholder="Autor"
+              name="author"
+              required
+              onChange={(e, obj) => this.setState({ author: obj.value })}
+            />
             <Form.Select
               fluid
               selection
               label="Categoria"
               placeholder="Categoria"
               options={getCategories(categorias)}
-              onChange={(e, obj) => this.setState({category: obj.value})}
+              onChange={(e, obj) => this.setState({ category: obj.value })}
             />
           </Form.Group>
           <Form.TextArea
@@ -64,8 +68,8 @@ class CriarPostagem extends Component {
             required
             label="Mensagem"
             placeholder="Digite sua postagem......"
-            onChange={(e, obj) => this.setState({body: obj.value})}
-            />
+            onChange={(e, obj) => this.setState({ body: obj.value })}
+          />
           <Form.Group>
             <Button type="submit">Criar</Button>
           </Form.Group>
