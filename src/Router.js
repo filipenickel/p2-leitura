@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Nav from './component/Nav'
+import Categorias from './component/Categorias'
 
 class Router extends Component {
   render() {
     return (
-      <Nav />
+      <Categorias />
     )
   }
 }
