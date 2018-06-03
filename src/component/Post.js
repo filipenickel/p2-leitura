@@ -22,7 +22,7 @@ class Post extends Component {
     let postagem = nextProps.postagem.postagem;
 
     if (postagem.deleted === true) {
-      window.location = "/erro404";
+      this.props.history.push("/erro404");
     }
   }
 
@@ -52,9 +52,9 @@ class Post extends Component {
       <main>
         <Comment.Group>
           <Comment>
-            <Button>
-              <Link to="/">Voltar</Link>
-            </Button>
+            <Link to="/">
+              <Button>Voltar</Button>
+            </Link>
             <br />
             <br />
             <Comment.Content>
@@ -91,9 +91,11 @@ class Post extends Component {
               </Comment.Text>
               <Comment.Text>Comentario: {postagem.body}</Comment.Text>
               <Comment.Actions>
-                <Button size="mini" style={{ marginRight: "5px" }}>
-                  <Link to={`/postagens/${postagem.id}/editar`}>Editar</Link>
-                </Button>
+                <Link to={`/postagens/${postagem.id}/editar`}>
+                  <Button size="mini" style={{ marginRight: "5px" }}>
+                    Editar
+                  </Button>
+                </Link>
                 <Button
                   size="mini"
                   onClick={() => this.handleExcluirPostagem(postagem.id)}

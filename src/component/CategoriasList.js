@@ -16,7 +16,7 @@ class CategoriasList extends Component {
 
     this.props.selecionarCategoria(categoria);
 
-    window.location = "/" + categoria;
+    this.props.history.push("/" + categoria);
   };
 
   render() {

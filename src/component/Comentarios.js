@@ -76,11 +76,11 @@ class Comentarios extends Component {
                 <div className="comentario-body">{comentario.body}</div>
                 <div className="comentario-footer">
                   <div>
-                    <Button size="mini" style={{ marginRight: "5px" }}>
-                      <Link to={`/comentarios/${comentario.id}/editar`}>
+                    <Link to={`/comentarios/${comentario.id}/editar`}>
+                      <Button size="mini" style={{ marginRight: "5px" }}>
                         Editar
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                     <Button
                       size="mini"
                       onClick={() =>

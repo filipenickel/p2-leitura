@@ -19,25 +19,16 @@ class EditarPostagem extends Component {
   componentDidMount() {
     this.props.callCarregarCategorias();
     this.props.callCarregarPostagem(this.props.match.params.id);
-
-    let postagem = this.props.postagem.postagem;
-
-    this.setState({
-      titulo: postagem.title,
-      autor: postagem.author,
-      categoria: postagem.category,
-      corpo: postagem.body
-    });
   }
 
   componentWillReceiveProps(nextProps) {
     let postagem = nextProps.postagem.postagem;
 
     this.setState({
-      titulo: postagem.title,
-      autor: postagem.author,
-      categoria: postagem.category,
-      corpo: postagem.body
+      titulo: postagem.title ? postagem.title: '',
+      autor: postagem.author ? postagem.author:'',
+      categoria: postagem.category ? postagem.category:'',
+      corpo: postagem.body ? postagem.body:''
     });
   }
 
@@ -55,7 +46,8 @@ class EditarPostagem extends Component {
 
     this.props.callEditarPostagem(postagem);
 
-    window.location = "/";
+    //window.location = "/";
+    this.props.history.push('/')
   };
 
   handleInput = e => {

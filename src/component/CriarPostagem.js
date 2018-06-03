@@ -23,7 +23,7 @@ class CriarPostagem extends Component {
 
     this.props.callCriarPostagem(postagem);
 
-    window.location = "/";
+    this.props.history.push("/");
   };
 
   render() {

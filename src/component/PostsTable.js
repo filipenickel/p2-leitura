@@ -32,8 +32,10 @@ class PostsTable extends Component {
     const { categoria } = this.props.match.params;
     const proximaCategoria = nextProps.match.params.categoria;
 
-    if (categoria !== proximaCategoria)
-      this.props.callCarregarPostagensPorCategoria(proximaCategoria);
+    if (categoria !== proximaCategoria) {
+      if (proximaCategoria === undefined) this.props.callCarregarPostagens();
+      else this.props.callCarregarPostagensPorCategoria(proximaCategoria);
+    }
 
     this.setState({
       ordem: ordem
@@ -77,8 +79,10 @@ class PostsTable extends Component {
             <option value="timestamp">Data</option>
           </select>
         </div>
+        
+        <div className="h3-wrapper" />
         <Table celled>
-          <div className="h3-wrapper" />
+          
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Título</Table.HeaderCell>
@@ -90,7 +94,6 @@ class PostsTable extends Component {
               <Table.HeaderCell>Ações</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-
           <tbody>
             {postagens !== undefined &&
               postagens.map(postagem => (
@@ -121,16 +124,12 @@ class PostsTable extends Component {
                     </Button>
                   </td>
                   <td>
-                    <Button style={{ marginRight: "5px" }}>
-                      <Link to={`/${postagem.category}/${postagem.id}`}>
-                        Ver
-                      </Link>
-                    </Button>
-                    <Button style={{ marginRight: "5px" }}>
-                      <Link to={`/postagens/${postagem.id}/editar`}>
-                        Editar
-                      </Link>
-                    </Button>
+                    <Link to={`/${postagem.category}/${postagem.id}`}>
+                      <Button style={{ marginRight: "5px" }}>Ver</Button>
+                    </Link>
+                    <Link to={`/postagens/${postagem.id}/editar`}>
+                      <Button style={{ marginRight: "5px" }}>Editar</Button>
+                    </Link>
                     <Button
                       onClick={() => this.handleExcluirPostagem(postagem.id)}
                     >
@@ -141,6 +140,7 @@ class PostsTable extends Component {
               ))}
           </tbody>
         </Table>
+        
         <Button>
           <Link to="/postagens/criar">Nova Postagem</Link>
         </Button>

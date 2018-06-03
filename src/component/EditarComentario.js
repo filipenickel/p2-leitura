@@ -11,25 +11,18 @@ class EditarComentario extends Component {
 
   componentDidMount() {
     this.props.callCarregarComentario(this.props.match.params.id);
-
-    let comentario = this.props.comentario.comentario;
-
-    this.setState({
-      autor: comentario.author,
-      corpo: comentario.body
-    });
   }
 
   componentWillReceiveProps(nextProps) {
     let comentario = nextProps.comentario.comentario;
 
     if (comentario.deleted === true) {
-      window.location = "/erro404";
+      this.props.history.push('/erro404')
     }
 
     this.setState({
-      autor: comentario.author,
-      corpo: comentario.body
+      autor: comentario.author ? comentario.author : "",
+      corpo: comentario.body ? comentario.body : ""
     });
   }
 
