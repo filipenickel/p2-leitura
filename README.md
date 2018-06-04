@@ -1,15 +1,9 @@
-O Readable é um app web que permite ao usuário adicionar posts e comentários a categorias pré-definidas, comentar nos posts, votar.
-
-Primeiro, instale e execute o servidor da API:
-*`cd Servidor`
-*`npm install`
-*`node server`
-
-Depois de executar o servidor, instale e execute o cliente web:
-
+O Readable é um app web que permite ao usuário adicionar posts e comentários a categorias pré-definidas, comentar nos posts, votar. :smile:
+Instale e execute o cliente web:
+* `cd Servidor`
 * `npm install`
 * `npm start`
-
+# Iniciando o servidor passos abaixo
 
 # API Server
 
