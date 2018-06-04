@@ -17,7 +17,7 @@ class EditarComentario extends Component {
     let comentario = nextProps.comentario.comentario;
 
     if (comentario.deleted === true) {
-      this.props.history.push('/erro404')
+      this.props.history.push('/NoMatch')
     }
 
     this.setState({

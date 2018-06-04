@@ -11,6 +11,7 @@ import { capitalize } from "../utils/helpers";
 import Moment from "moment";
 import Comentarios from "./Comentarios";
 import { Button, Comment } from "semantic-ui-react";
+import NoMatch from './NoMatch'
 
 class Post extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class Post extends Component {
     let postagem = nextProps.postagem.postagem;
 
     if (postagem.deleted === true) {
-      this.props.history.push("/erro404");
+      this.props.history.push("/NoMatch");
     }
   }
 
@@ -44,8 +45,12 @@ class Post extends Component {
     this.props.callVotar(id, data, "posts", true);
   };
 
+  
   render() {
+
     let postagem = this.props.postagem.postagem;
+    if( Object.keys(postagem).length === 0 ){
+      return <NoMatch location={this.props.location}/> }
     let comentarios = this.props.comentarios.comentarios;
 
     return (

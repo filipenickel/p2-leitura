@@ -8,7 +8,7 @@ import EditarPostagem from "./component/EditarPostagem";
 import EditarComentario from "./component/EditarComentario";
 import Post from "./component/Post";
 
-import NotFound from "./component/NotFound";
+import NoMatch from "./component/NoMatch";
 
 class App extends Component {
   render() {
@@ -39,7 +39,7 @@ class App extends Component {
               path="/comentarios/:id/editar"
               component={EditarComentario}
             />
-            <Route path="*" component={NotFound} />
+            <Route component={NoMatch} />
           </Switch>
         </main>
       </div>
